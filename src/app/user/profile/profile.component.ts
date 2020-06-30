@@ -61,7 +61,7 @@ export class ProfileComponent implements OnInit {
       .subscribe(value => {
         this.alertify.success('Nachricht gesendet');
       }, error => {
-        this.alertify.error('Nachricht konnte nicht gesendet werden: ' + error.mssage);
+        this.alertify.error('Nachricht konnte nicht gesendet werden: ' + error);
       });
   }
 }

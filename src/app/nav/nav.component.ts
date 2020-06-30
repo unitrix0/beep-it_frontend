@@ -8,7 +8,6 @@ import {ZXingScannerComponent} from '@zxing/ngx-scanner';
 import {NgForm} from '@angular/forms';
 import {BsModalService} from 'ngx-bootstrap/modal';
 import {RegistrationComponent} from '../registration/registration.component';
-import {RoleNames} from '../_enums/role-names.enum';
 
 @Component({
   selector: 'app-nav',
@@ -45,13 +44,7 @@ export class NavComponent {
         });
       }, response => {
         console.log(response);
-        if (response.error.isLockedOut) {
-          this.alertify.error('Anmeldung fehlgeschlagen: Konto gesperrt');
-        } else if (response.error.isNotAllowed) {
-          this.alertify.error('Anmeldung nicht erlaubt. Wenden Sie sich an den Support');
-        } else {
-          this.alertify.error('Anmeldung fehlgeschlagen: Benutzername oder Passwort falsch');
-        }
+        this.alertify.error('Anmeldung fehlgeschlagen: ' + response);
       });
 
     });
@@ -67,6 +60,10 @@ export class NavComponent {
 
   showNotificationBadge(): boolean {
     return this.invitationsCount > 0 || !this.authService.currentUser.emailConfirmed;
+  }
+
+  showRegistrationForm() {
+    const ref = this.modalService.show(RegistrationComponent);
   }
 
   private fillInCameras(): Promise<boolean> {
@@ -85,9 +82,5 @@ export class NavComponent {
       this.alertify.error('Die Kameras konnten nicht abgefragt werden: ' + reason);
       return false;
     });
-  }
-
-  showRegistrationForm() {
-     const ref = this.modalService.show(RegistrationComponent);
   }
 }

@@ -11,18 +11,18 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError(response => {
         if (response instanceof HttpErrorResponse) {
           if (response.status === 401) {
-            if (response.error && response.error.status) {
-              // Unerwarteter 401
-              return throwError(response.error.title);
-            }
-            // 401 bei Login anfrage
-            return throwError(response);
+            return throwError(response.statusText);
           }
 
           const applicationError = response.headers.get('Application-Error');
           if (applicationError) {
-            console.error(applicationError);
+            console.error(response.error);
             return throwError(applicationError);
+          }
+
+          if (response.status === 0) {
+            console.log(response);
+            return throwError('Unbekannter fehler');
           }
 
           const serverError = response.error;
@@ -30,7 +30,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           if (serverError && typeof serverError === 'object') {
             modalStateErrors = '<ul>\n';
             for (const key in serverError) {
-              if (serverError[key]) {
+              if (serverError[key] && serverError[key].description !== undefined) {
                 modalStateErrors += '<li>' + serverError[key].description + '</li>\n';
               }
             }
