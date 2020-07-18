@@ -40,8 +40,8 @@ export class UsersService {
       .subscribe(count => {
         this.invitationsCountUpdated.emit(count);
       }, error => {
-        console.log('Einladungen konnten nicht abgefragt werden');
-        console.log(error);
+        console.log('Einladungen konnten nicht abgefragt werden ' + error.message);
+        // console.log(error);
       });
   }
 

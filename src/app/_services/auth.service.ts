@@ -1,11 +1,11 @@
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {map} from 'rxjs/operators';
+import {map, switchMap, tap} from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {Observable} from 'rxjs';
 import {UserForLogin} from '../_models/user-for-login';
 import {environment} from '../../environments/environment';
 import {UserToken} from '../_models/userToken';
-import {EventEmitter, Injectable, Output} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserForRegistration} from '../_models/user-for-registration';
 import {User} from '../_models/user';
@@ -15,11 +15,13 @@ import {RoleNames} from '../_enums/role-names.enum';
 
 @Injectable()
 export class AuthService {
-  @Output() onLogin = new EventEmitter();
-  @Output() onLogout = new EventEmitter();
+  onLogin = new EventEmitter();
+  onLogout = new EventEmitter();
   decodedToken: IdentityToken;
   currentUser: UserToken;
   private baseUrl = environment.apiUrl + 'auth/';
+  private _identityToken: string;
+  private _refreshToken: string;
 
   constructor(private http: HttpClient, private router: Router, private jwtHelper: JwtHelperService) {
   }
@@ -32,12 +34,24 @@ export class AuthService {
     return this.http.post(this.baseUrl + 'login', user)
       .pipe(
         map((response: any) => {
+          console.log(response);
           if (response) {
             this.saveTokens(response);
             this.onLogin.emit();
           }
         })
       );
+  }
+
+  refreshToken(): Observable<void> {
+    return this.http.post<object>(this.baseUrl + 'RefreshToken', {
+      'token': this._identityToken,
+      'refreshToken': this._refreshToken
+    }).pipe(
+      map(response => {
+      console.log('refresh response');
+      this.saveTokens(response);
+    }));
   }
 
   demoLogin(): Observable<void> {
@@ -63,11 +77,12 @@ export class AuthService {
 
   loggedIn(): boolean {
     const token = localStorage.getItem(LocalStorageItemNames.identityToken);
-    if (this.jwtHelper.isTokenExpired(token)) {
-      localStorage.clear();
+    try {
+      const decToken = this.jwtHelper.decodeToken(token);
+      return decToken !== null;
+    } catch (e) {
+      console.log(e.message);
       return false;
-    } else {
-      return true;
     }
   }
 
@@ -84,10 +99,16 @@ export class AuthService {
 
   reloadToken() {
     const token = localStorage.getItem(LocalStorageItemNames.identityToken);
+    const refreshToken = localStorage.getItem(LocalStorageItemNames.refreshToken);
     const user: UserToken = JSON.parse(localStorage.getItem('user'));
 
     if (token) {
       this.decodedToken = this.jwtHelper.decodeToken(token);
+      this._identityToken = token;
+    }
+
+    if (refreshToken) {
+      this._refreshToken = refreshToken;
     }
 
     if (user) {
@@ -120,12 +141,39 @@ export class AuthService {
       }));
   }
 
+  TokenIsExpired(): boolean {
+    if (this._identityToken) {
+      return this.jwtHelper.isTokenExpired(this._identityToken);
+    }
+
+    return false;
+  }
+
   private saveTokens(response: any) {
-    localStorage.setItem(LocalStorageItemNames.identityToken, response.identityToken);
-    localStorage.setItem(LocalStorageItemNames.permissionsToken, response.permissionsToken);
-    localStorage.setItem(LocalStorageItemNames.settings, JSON.stringify(response.settings));
-    localStorage.setItem('user', JSON.stringify(response.mappedUser));
-    this.decodedToken = this.jwtHelper.decodeToken(response.token);
-    this.currentUser = response.mappedUser;
+    if (response.identityToken) {
+      this._identityToken = response.identityToken;
+      localStorage.setItem(LocalStorageItemNames.identityToken, response.identityToken);
+      this.decodedToken = this.jwtHelper.decodeToken(response.identityToken);
+      console.log('Valid until: ' + this.jwtHelper.getTokenExpirationDate(this._identityToken));
+    }
+
+    if (response.refreshToken) {
+      this._refreshToken = response.refreshToken;
+      localStorage.setItem(LocalStorageItemNames.refreshToken, response.refreshToken);
+    }
+
+    if (response.permissionsToken) {
+      localStorage.setItem(LocalStorageItemNames.permissionsToken, response.permissionsToken);
+    }
+
+    if (response.settings) {
+      localStorage.setItem(LocalStorageItemNames.settings, JSON.stringify(response.settings));
+    }
+
+    if (response.mappedUser) {
+      localStorage.setItem('user', JSON.stringify(response.mappedUser));
+      this.currentUser = response.mappedUser;
+    }
   }
 }
+

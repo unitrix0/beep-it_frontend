@@ -75,7 +75,9 @@ import {HoverClassDirective} from './_directives/hover-class.directive';
 import {PermissionsChangedInterceptorProvider} from './_interceptors/permissions-changed.interceptor';
 import {PermissionHeadersInterceptorProvider} from './_interceptors/add-permission-headers.interceptor';
 import { RoundPipe } from './_helpers/round.pipe';
+import {tokenExpiredInterceptorProvider} from './_interceptors/token-expired.interceptor';
 
+/* Liest den Token aus dem LocalStorage */
 export function jwtGetter() {
   const token = localStorage.getItem(LocalStorageItemNames.identityToken);
   return token;
@@ -171,7 +173,8 @@ registerLocaleData(localeCh, 'de-CH');
     ArticlesService,
     ErrorInterceptorProvider,
     PermissionHeadersInterceptorProvider,
-    PermissionsChangedInterceptorProvider
+    PermissionsChangedInterceptorProvider,
+    // tokenExpiredInterceptorProvider
   ],
   bootstrap: [AppComponent],
   entryComponents: [

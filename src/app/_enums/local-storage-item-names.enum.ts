@@ -4,5 +4,6 @@ export enum LocalStorageItemNames {
   settings = 'settings',
   units = 'units',
   articleGroups = 'articleGroups',
-  stores = 'stores'
+  stores = 'stores',
+  refreshToken = 'refreshToken',
 }
