@@ -43,15 +43,16 @@ export class AuthService {
       );
   }
 
-  refreshToken(): Observable<void> {
+  refreshToken(): Observable<string> {
     return this.http.post<object>(this.baseUrl + 'RefreshToken', {
       'token': this._identityToken,
       'refreshToken': this._refreshToken
     }).pipe(
       map(response => {
-      console.log('refresh response');
-      this.saveTokens(response);
-    }));
+        console.log('refresh succeeded');
+        this.saveTokens(response);
+        return this._identityToken;
+      }));
   }
 
   demoLogin(): Observable<void> {
