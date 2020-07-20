@@ -18,8 +18,6 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError(response => {
         if (response instanceof HttpErrorResponse) {
           if (response.status === 401) {
-            console.log(response.url + ' => 401');
-            console.log(this.refreshRunning);
             if (this.authService.TokenIsExpired()) {
               return this.RefreshToken(next, req);
             } else {

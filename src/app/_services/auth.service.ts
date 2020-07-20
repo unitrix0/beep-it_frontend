@@ -34,7 +34,6 @@ export class AuthService {
     return this.http.post(this.baseUrl + 'login', user)
       .pipe(
         map((response: any) => {
-          console.log(response);
           if (response) {
             this.saveTokens(response);
             this.onLogin.emit();
