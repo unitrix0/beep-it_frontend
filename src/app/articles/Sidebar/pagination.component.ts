@@ -9,7 +9,7 @@ import {PageChangedEvent} from 'ngx-bootstrap/pagination';
 })
 export class PaginationComponent implements OnInit {
   @Input() pagination: Pagination;
-  @Output() pageChanged = new EventEmitter<PageChangedEvent>()
+  @Output() pageChanged = new EventEmitter<PageChangedEvent>();
 
   constructor() {
   }
