@@ -6,7 +6,7 @@ import {Directive, HostListener, Input} from '@angular/core';
 export class HoverClassDirective {
 
   @Input('appHoverClass') hoverClass: string;
-  @Input('hoverClassTarget') hoverClassTarget: HTMLElement;
+  @Input() hoverClassTarget: HTMLElement;
 
   @HostListener('mouseenter') onMouseEnter() {
     this.hoverClassTarget.classList.add(this.hoverClass);
