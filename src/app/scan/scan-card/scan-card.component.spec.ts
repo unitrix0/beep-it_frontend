@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ScanCardComponent } from './scan-card.component';
 
@@ -6,7 +6,7 @@ describe('ScanCardComponent', () => {
   let component: ScanCardComponent;
   let fixture: ComponentFixture<ScanCardComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ScanCardComponent ]
     })
