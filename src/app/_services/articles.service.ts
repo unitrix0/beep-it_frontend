@@ -78,16 +78,16 @@ export class ArticlesService {
     return this.http.post<Article>(this.baseUrl + 'AddStockEntry', stockEntry);
   }
 
-  getArticleDateSuggestions(barcode: string, environmentId: string): Observable<DateSuggestions> {
+  getArticleDateSuggestions(barcode: string, environmentId: number): Observable<DateSuggestions> {
     return this.http.get<DateSuggestions>(this.baseUrl + 'GetArticleDateSuggestions/' + barcode + '/' + environmentId);
   }
 
-  getArticleStock(articleId: number, environmentId: string, pageNumber: number): Observable<PagedStockList> {
+  getArticleStock(articleId: number, environmentId: number, pageNumber: number): Observable<PagedStockList> {
     const params = new HttpParams()
       .append('pageNumber', pageNumber.toString())
       .append('itemsPerPage', '3')
       .append('articleId', articleId.toString())
-      .append('environmentId', environmentId);
+      .append('environmentId', environmentId.toString());
 
     return this.http.get<StockEntry[]>(this.baseUrl + 'GetArticleStock', {observe: 'response', params: params})
       .pipe(

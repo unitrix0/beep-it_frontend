@@ -2,7 +2,7 @@ export interface CheckIn {
   amountOnStock: number;
   expireDate: Date;
   usualLifetime: number;
-  environmentId: string;
+  environmentId: number;
   barcode: string;
   articleId: number;
   clientTimezoneOffset: number;

@@ -2,7 +2,7 @@ import {ArticleGroup} from './article-group';
 
 export interface ArticleUserSettings {
   id: number;
-  environmentId: string;
+  environmentId: number;
   articleId: number;
   articleGroup: ArticleGroup;
   articleGroupId: number;

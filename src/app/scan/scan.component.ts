@@ -124,7 +124,7 @@ export class ScanComponent implements OnInit, AfterViewInit {
               name: string;
             };
             articleId: number;
-            environmentId: string;
+            environmentId: number;
             id: number;
             keepStockAmount: number;
           };
@@ -162,7 +162,7 @@ export class ScanComponent implements OnInit, AfterViewInit {
   }
 
   private saveArticleUserSettings() {
-    this.articleUserSettings.environmentId = this.permissions.token.environment_id;
+    this.articleUserSettings.environmentId = Number(this.permissions.token.environment_id);
     this.articleUserSettings.articleId = this.scannedArticle.id;
     this.articles.createArticleUserSettings(this.articleUserSettings)
       .subscribe(response => {

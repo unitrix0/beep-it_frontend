@@ -126,7 +126,7 @@
                 <div class="form-group">
                   <label for="keepStockAmount">Soll Lagerbestand</label>
                   <div class="input-group input-group-sm w-75" *ngIf="articleUserSettings.articleGroup.id === 1">
-                    <input type="text" class="form-control form-control-sm text-right no-round-corners"
+                    <input type="number" class="form-control form-control-sm text-right no-round-corners"
                            name="keepStockAmount"
                            [(ngModel)]="articleUserSettings.keepStockAmount" id="keepStockAmount"
                            [ngClass]="{'is-invalid': keepStockAmount.touched && keepStockAmount.invalid}"
