@@ -5,7 +5,7 @@ import {Observable, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {AlertifyService} from '../_services/alertify.service';
 import {AuthService} from '../_services/auth.service';
-import {UserInvitations} from '../_models/user-invitations';
+import {UserInvitations} from '../shared/_models/user-invitations';
 
 @Injectable()
 export class InvitationsResolver implements Resolve<UserInvitations> {

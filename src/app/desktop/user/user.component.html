@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <tabset>
+    <tab class="border-bottom border-primary default-height">
+      <ng-template tabHeading>
+        <span>Profil</span>
+      </ng-template>
+      <app-profile [user]="user"></app-profile>
+    </tab>
+    <tab class="border-bottom border-primary default-height">
+      <ng-template tabHeading>
+        <span>Einstellungen</span>
+      </ng-template>
+      <app-user-settings></app-user-settings>
+    </tab>
+    <tab class="border-bottom border-primary default-height">
+      <ng-template tabHeading>
+        <span>Umgebungen</span>
+      </ng-template>
+      <app-environment-edit [environments]="user.environments" [userId]="user.id"></app-environment-edit>
+    </tab>
+  </tabset>
+</div>
+

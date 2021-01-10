@@ -1,9 +1,9 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
-import {PermissionFlags} from '../_enums/permission-flags.enum';
+import {PermissionFlags} from '../shared/_enums/permission-flags.enum';
 import {JwtHelperService} from '@auth0/angular-jwt';
-import {PermissionToken} from '../_models/permission-token';
+import {PermissionToken} from '../shared/_models/permission-token';
 import {AuthService} from './auth.service';
-import {LocalStorageItemNames} from '../_enums/local-storage-item-names.enum';
+import {LocalStorageItemNames} from '../shared/_enums/local-storage-item-names.enum';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {map} from 'rxjs/operators';

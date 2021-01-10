@@ -2,16 +2,16 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {map, switchMap, tap} from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {Observable} from 'rxjs';
-import {UserForLogin} from '../_models/user-for-login';
+import {UserForLogin} from '../shared/_models/user-for-login';
 import {environment} from '../../environments/environment';
-import {UserToken} from '../_models/userToken';
+import {UserToken} from '../shared/_models/userToken';
 import {EventEmitter, Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {UserForRegistration} from '../_models/user-for-registration';
-import {User} from '../_models/user';
-import {IdentityToken} from '../_models/identity-token';
-import {LocalStorageItemNames} from '../_enums/local-storage-item-names.enum';
-import {RoleNames} from '../_enums/role-names.enum';
+import {UserForRegistration} from '../shared/_models/user-for-registration';
+import {User} from '../shared/_models/user';
+import {IdentityToken} from '../shared/_models/identity-token';
+import {LocalStorageItemNames} from '../shared/_enums/local-storage-item-names.enum';
+import {RoleNames} from '../shared/_enums/role-names.enum';
 
 @Injectable()
 export class AuthService {

@@ -1,23 +1,23 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {PaginatedResult, Pagination} from '../_models/pagination';
-import {Article} from '../_models/article';
+import {PaginatedResult, Pagination} from '../shared/_models/pagination';
+import {Article} from '../shared/_models/article';
 import {environment} from '../../environments/environment';
-import {ArticlesFilter} from '../_models/articles-filter';
+import {ArticlesFilter} from '../shared/_models/articles-filter';
 import {map} from 'rxjs/operators';
-import {Unit} from '../_models/unit';
-import {ArticleGroup} from '../_models/article-group';
-import {CheckIn} from '../_models/check-in';
-import {StockEntry} from '../_models/stock.entry';
-import {DateSuggestions} from '../_models/date.suggestions';
-import {Store} from '../_models/store';
-import {PagedStockList} from '../_models/paged-stock-list';
-import {ActivityLogEntry} from '../_models/activity-log-entry';
-import {ArticleUserSettings} from '../_models/articleUserSettings';
+import {Unit} from '../shared/_models/unit';
+import {ArticleGroup} from '../shared/_models/article-group';
+import {CheckIn} from '../shared/_models/check-in';
+import {StockEntry} from '../shared/_models/stock.entry';
+import {DateSuggestions} from '../shared/_models/date.suggestions';
+import {Store} from '../shared/_models/store';
+import {PagedStockList} from '../shared/_models/paged-stock-list';
+import {ActivityLogEntry} from '../shared/_models/activity-log-entry';
+import {ArticleUserSettings} from '../shared/_models/articleUserSettings';
 import {PermissionsService} from './permissions.service';
 import {AuthService} from './auth.service';
-import {LocalStorageItemNames} from '../_enums/local-storage-item-names.enum';
+import {LocalStorageItemNames} from '../shared/_enums/local-storage-item-names.enum';
 
 @Injectable({
   providedIn: 'root'

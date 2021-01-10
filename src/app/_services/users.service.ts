@@ -1,13 +1,13 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {User} from '../_models/user';
+import {User} from '../shared/_models/user';
 import {environment} from '../../environments/environment';
-import {MemberPermission} from '../_models/memberPermission';
-import {UserInvitations} from '../_models/user-invitations';
-import {NewInvitation} from '../_models/new-invitation';
-import {BeepEnvironment} from '../_models/beep-environment';
-import {Camera} from '../_models/camera';
+import {MemberPermission} from '../shared/_models/memberPermission';
+import {UserInvitations} from '../shared/_models/user-invitations';
+import {NewInvitation} from '../shared/_models/new-invitation';
+import {BeepEnvironment} from '../shared/_models/beep-environment';
+import {Camera} from '../shared/_models/camera';
 
 @Injectable({
   providedIn: 'root'

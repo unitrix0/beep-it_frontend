@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {AuthService} from './auth.service';
 import {UsersService} from './users.service';
-import {UserSettings} from '../_models/user-settings';
-import {LocalStorageItemNames} from '../_enums/local-storage-item-names.enum';
+import {UserSettings} from '../shared/_models/user-settings';
+import {LocalStorageItemNames} from '../shared/_enums/local-storage-item-names.enum';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 

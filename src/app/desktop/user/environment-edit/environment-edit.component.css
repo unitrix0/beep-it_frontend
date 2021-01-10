@@ -1,0 +1,8 @@
+.list-group-item.active{
+  border-width: 2px;
+  border-color: limegreen;
+}
+
+.list-group-item-cursor {
+  cursor: pointer;
+}

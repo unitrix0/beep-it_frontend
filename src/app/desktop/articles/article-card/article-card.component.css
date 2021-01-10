@@ -1,0 +1,23 @@
+.card {
+  min-width: 13rem;
+  max-width: 13rem;
+  min-height: 19rem;
+  max-height: 22rem;
+  /*min-height: 10rem;*/
+}
+
+img {
+  width: auto;
+  height: auto;
+  max-height: 130px;
+  max-width: 100px;
+}
+
+/*.card-footer{*/
+/*  max-width: 220px;*/
+/*}*/
+
+.edit-mode {
+  min-height: 27rem;
+  min-width: 50rem;
+}

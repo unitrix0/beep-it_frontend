@@ -1,0 +1,67 @@
+.edit-size {
+  min-height: 250px;
+  min-width: 520px;
+}
+
+.check-in-size {
+  min-height: 260px;
+  min-width: 400px;
+}
+
+.no-round-corners {
+  border-radius: 0rem;
+}
+
+.tab-bottom-line {
+  border-bottom: solid 1px;
+}
+
+.list-group {
+  max-height: 200px;
+  overflow-x: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.list-group-item-cursor {
+  cursor: pointer;
+}
+
+.list-group-item-action:hover {
+  color: unset;
+}
+
+/* Remove Spinners for number inputs */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media (min-width: 1200px) {
+  .fa-trash-alt,
+  .fa-trash-hidden {
+    display: none;
+  }
+
+  .fa-trash-show {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .fa-trash-alt,
+  .fa-trash-hidden {
+    color: grey;
+  }
+
+  .fa-trash-show {
+    color: black;
+  }
+}

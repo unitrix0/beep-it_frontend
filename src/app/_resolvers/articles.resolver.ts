@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
-import {PaginatedResult} from '../_models/pagination';
-import {Article} from '../_models/article';
+import {PaginatedResult} from '../shared/_models/pagination';
+import {Article} from '../shared/_models/article';
 import {Observable, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {AlertifyService} from '../_services/alertify.service';
 import {ArticlesService} from '../_services/articles.service';
-import {ArticlesFilter} from '../_models/articles-filter';
+import {ArticlesFilter} from '../shared/_models/articles-filter';
 import {PermissionsService} from '../_services/permissions.service';
 import {error} from '@angular/compiler/src/util';
 

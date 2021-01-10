@@ -1,0 +1,8 @@
+.card{
+  cursor: pointer;
+}
+
+div.disabled {
+  pointer-events: none;
+  cursor: default;
+}
