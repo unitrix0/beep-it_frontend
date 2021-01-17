@@ -5,13 +5,18 @@ import { MobileRoutingModule } from './mobile-routing.module';
 import { ScanComponent } from './scan/scan.component';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { NavComponent } from './nav/nav.component';
+import { ButtonBarComponent } from './button-bar/button-bar.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 
 @NgModule({
-  declarations: [ScanComponent, MainContainerComponent, NavComponent],
+  declarations: [ScanComponent, MainContainerComponent, NavComponent, ButtonBarComponent, ArticlesComponent, ShoppingListComponent],
   imports: [
     CommonModule,
     MobileRoutingModule
   ]
 })
-export class MobileModule { }
+export class MobileModule {
+
+}

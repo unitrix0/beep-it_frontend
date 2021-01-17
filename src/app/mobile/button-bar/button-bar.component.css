@@ -1,0 +1,29 @@
+footer{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.container{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn-group {
+  display: flex;
+}
+
+.btn {
+  flex: 1
+}
+
+i{
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+  color: whitesmoke;
+}
+
+.active{
+  border-bottom: 2px solid white;
+}
