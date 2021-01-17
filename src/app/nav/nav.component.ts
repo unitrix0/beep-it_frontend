@@ -14,6 +14,7 @@ import {AlertifyService} from '../_services/alertify.service';
 export class NavComponent implements OnInit {
   @ViewChild('loginForm') loginForm: NgForm;
   invitationsCount: any;
+  loginError: any;
   user: UserForLogin = new class implements UserForLogin {
     cameras: MediaDeviceInfo[] = [];
     password: string;
@@ -37,6 +38,7 @@ export class NavComponent implements OnInit {
         });
       }, response => {
         console.log(response);
+        this.loginError = response;
         this.alertify.error('Anmeldung fehlgeschlagen: ' + response);
       });
 
