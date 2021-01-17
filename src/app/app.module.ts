@@ -22,7 +22,6 @@ import {CodeScannerComponent} from './desktop/scan/code-scanner/code-scanner.com
 import {PermissionsService} from './_services/permissions.service';
 import {ArticlesService} from './_services/articles.service';
 import {CheckOutDialogComponent} from './desktop/articles/check-out-dialog/check-out-dialog.component';
-import {MaximumValueDirective} from './shared/_directives/maximum-value.directive';
 import {ArticleOpenDialogComponent} from './desktop/articles/article-open-dialog/article-open-dialog.component';
 import {LocalStorageItemNames} from './shared/_enums/local-storage-item-names.enum';
 import {AccountActivationComponent} from './account-activation/account-activation.component';
@@ -30,12 +29,11 @@ import {ErrorInterceptorProvider} from './_interceptors/error.interceptor';
 import {CarouselComponent} from './home/carousel/carousel.component';
 import {CarouselModule} from 'ngx-bootstrap/carousel';
 import {PaginationModule} from 'ngx-bootstrap/pagination';
-import {HoverClassDirective} from './shared/_directives/hover-class.directive';
 import {PermissionsChangedInterceptorProvider} from './_interceptors/permissions-changed.interceptor';
 import {PermissionHeadersInterceptorProvider} from './_interceptors/add-permission-headers.interceptor';
-import {NavComponent} from './desktop/nav/nav.component';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NavComponent } from './nav/nav.component';
 
 /* Liest den Token aus dem LocalStorage */
 export function jwtGetter() {
@@ -46,55 +44,55 @@ export function jwtGetter() {
 registerLocaleData(localeCh, 'de-CH');
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavComponent,
-    HomeComponent,
-    CodeScannerComponent,
-    AccountActivationComponent,
-    CarouselComponent,
-  ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: jwtGetter,
-        // whitelistedDomains: ['localhost:5001'],
-        // blacklistedRoutes: ['localhost:5001/api/auth']
-        allowedDomains: ['drone02.hive.loc:5000', 'drone02.hive.loc:5001'],
-        disallowedRoutes: ['drone02.hive.loc:5000/api/auth', 'drone02.hive.loc:5001/api/auth']
-      }
-    }),
-    ModalModule.forRoot(),
-    FormsModule,
-    RouterModule.forRoot(appRoutes, {relativeLinkResolution: 'legacy'}),
-    PaginationModule.forRoot(),
-    CarouselModule.forRoot(),
-    ZXingScannerModule,
-    BrowserAnimationsModule
-  ],
-  providers: [
-    {provide: LOCALE_ID, useValue: 'de-CH'},
-    AuthService,
-    UsersService,
-    ArticlesResolver,
-    EditUserResolver,
-    InvitationsResolver,
-    ResetScanService,
-    PermissionsService,
-    ArticlesService,
-    ErrorInterceptorProvider,
-    PermissionHeadersInterceptorProvider,
-    PermissionsChangedInterceptorProvider,
-    // tokenExpiredInterceptorProvider
-  ],
-  bootstrap: [AppComponent],
-  entryComponents: [
-    InviteDialogComponent,
-    CheckOutDialogComponent,
-    ArticleOpenDialogComponent
-  ]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        CodeScannerComponent,
+        AccountActivationComponent,
+        CarouselComponent,
+        NavComponent,
+    ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: jwtGetter,
+                // whitelistedDomains: ['localhost:5001'],
+                // blacklistedRoutes: ['localhost:5001/api/auth']
+                allowedDomains: ['drone02.hive.loc:5000', 'drone02.hive.loc:5001'],
+                disallowedRoutes: ['drone02.hive.loc:5000/api/auth', 'drone02.hive.loc:5001/api/auth']
+            }
+        }),
+        ModalModule.forRoot(),
+        FormsModule,
+        RouterModule.forRoot(appRoutes, {relativeLinkResolution: 'legacy'}),
+        PaginationModule.forRoot(),
+        CarouselModule.forRoot(),
+        ZXingScannerModule,
+        BrowserAnimationsModule
+    ],
+    providers: [
+        {provide: LOCALE_ID, useValue: 'de-CH'},
+        AuthService,
+        UsersService,
+        ArticlesResolver,
+        EditUserResolver,
+        InvitationsResolver,
+        ResetScanService,
+        PermissionsService,
+        ArticlesService,
+        ErrorInterceptorProvider,
+        PermissionHeadersInterceptorProvider,
+        PermissionsChangedInterceptorProvider,
+        // tokenExpiredInterceptorProvider
+    ],
+    bootstrap: [AppComponent],
+    entryComponents: [
+        InviteDialogComponent,
+        CheckOutDialogComponent,
+        ArticleOpenDialogComponent
+    ]
 })
 export class AppModule {
 }

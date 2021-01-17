@@ -38,10 +38,13 @@ import {Ng5SliderModule} from 'ng5-slider';
 import {DesktopRoutes} from './desktop-routes.module';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {SharedModule} from '../shared/shared.module';
+import { MainContainerComponent } from './main-container/main-container.component';
+import {NavComponent} from './nav/nav.component';
 
 
 @NgModule({
   declarations: [
+    NavComponent,
     ScanComponent,
     ScanCardComponent,
     ArticleEditComponent,
@@ -72,6 +75,7 @@ import {SharedModule} from '../shared/shared.module';
     SelectCameraDialogComponent,
     EnvironmentSelectorComponent,
     ActivityLogComponent,
+    MainContainerComponent,
   ],
   imports: [
     CommonModule,

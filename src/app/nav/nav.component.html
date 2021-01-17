@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-transparent">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <i class="fas fa-barcode fa-2x mr-1"></i> <strong style="font-size: 36px">Beep</strong>
+    </a>
+
+    <form class="form-inline mx-auto" #loginForm="ngForm" (ngSubmit)="login()">
+      <div class="input-group">
+        <div class="input-group-append">
+          <input type="text" class="form-control form-control-sm mr-2" name="username"
+                 placeholder="Benutzername" required [(ngModel)]="user.username">
+        </div>
+        <div class="input-group-append">
+          <input type="password" class="form-control form-control-sm mr-2" name="password"
+                 placeholder="Passwort" required [(ngModel)]="user.password">
+        </div>
+        <button class="btn btn-sm btn-success" type="submit" [disabled]="!loginForm.valid">Anmelden</button>
+      </div>
+    </form>
+  </div>
+</nav>
+

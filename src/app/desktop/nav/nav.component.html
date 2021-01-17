@@ -1,43 +1,27 @@
-<nav class="navbar navbar-expand-lg"
-     [ngClass]="loggedIn() ? 'navbar-light bg-light':'navbar-transparent'">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" href="#">
       <i class="fas fa-barcode fa-2x mr-1"></i> <strong style="font-size: 36px">Beep</strong>
     </a>
-    <!--    Login Form-->
-    <form class="form-inline mx-auto" #loginForm="ngForm" (ngSubmit)="login()" *ngIf="!loggedIn()">
-      <div class="input-group">
-        <div class="input-group-append">
-          <input type="text" class="form-control form-control-sm mr-2" name="username"
-                 placeholder="Benutzername" required [(ngModel)]="user.username">
-        </div>
-        <div class="input-group-append">
-          <input type="password" class="form-control form-control-sm mr-2" name="password"
-                 placeholder="Passwort" required [(ngModel)]="user.password">
-        </div>
-        <button class="btn btn-sm btn-success" type="submit" [disabled]="!loginForm.valid">Anmelden</button>
-      </div>
-    </form>
 
     <!--    Navigation Menu -->
-    <button class="navbar-toggler" type="button" (click)="showNavMenu = !showNavMenu"
-            *ngIf="loggedIn()">
+    <button class="navbar-toggler" type="button" (click)="showNavMenu = !showNavMenu">
       <span class="navbar-toggler-icon"></span>
       <span class="badge badge-pill badge-success ml-1" *ngIf="showNotificationBadge()">
             <i class="fas fa-bell"></i></span>
     </button>
-    <div class="collapse navbar-collapse" [class.show]="showNavMenu" *ngIf="loggedIn()">
+    <div class="collapse navbar-collapse" [class.show]="showNavMenu">
       <ul class="navbar-nav mx-auto" (click)="showNavMenu = false">
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-          <a class="nav-link" [routerLink]="'/scan/'">
+          <a class="nav-link" [routerLink]="'/main/scan/'">
             <i class="fas fa-receipt mr-1"></i>Scan</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="'/articles/'">
+          <a class="nav-link" [routerLink]="'/main/articles/'">
             <i class="fas fa-box mr-1"></i>Artikel</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="'/shopping-list'">
+          <a class="nav-link" [routerLink]="'/main/shopping-list'">
             <i class="fas fa-shopping-cart mr-1"></i>Einkaufsliste</a>
         </li>
       </ul>
@@ -54,13 +38,13 @@
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic"
             (click)="showNavMenu = false">
           <li role="menuitem">
-            <a class="dropdown-item" [routerLink]="['users/', authService.decodedToken.nameid,'invitations']">
+            <a class="dropdown-item" [routerLink]="['/main/users/', authService.decodedToken.nameid,'invitations']">
               Einladungen
               <span class="badge badge-pill badge-info ml-2" *ngIf="invitationsCount > 0">{{invitationsCount}}</span>
             </a>
           </li>
           <li role="menuitem">
-            <a class="dropdown-item" [routerLink]="['users/',authService.decodedToken.nameid]">
+            <a class="dropdown-item" [routerLink]="['/main/users/',authService.decodedToken.nameid]">
               Profil und Umgebungen
               <span class="badge badge-pill badge-info ml-2"
                     *ngIf="!authService.currentUser.emailConfirmed"><i class="fas fa-bell"></i>

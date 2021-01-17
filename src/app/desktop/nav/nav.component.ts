@@ -34,26 +34,6 @@ export class NavComponent {
     });
   }
 
-  login() {
-    this.fillInCameras().then(success => {
-      this.authService.login(this.user).subscribe(() => {
-        this.loginForm.resetForm();
-        this.alertify.success('Anmeldung erfolgreich');
-        this.router.navigate(['scan']).catch(reason => {
-          console.log('Navigation failed: ' + reason);
-        });
-      }, response => {
-        console.log(response);
-        this.alertify.error('Anmeldung fehlgeschlagen: ' + response);
-      });
-
-    });
-  }
-
-  loggedIn(): boolean {
-    return this.authService.loggedIn();
-  }
-
   logout() {
     this.authService.logout();
   }
@@ -66,21 +46,5 @@ export class NavComponent {
     const ref = this.modalService.show(RegistrationComponent);
   }
 
-  private fillInCameras(): Promise<boolean> {
-    const scanner: ZXingScannerComponent = new ZXingScannerComponent();
-    return scanner.askForPermission().then(permitted => {
-      if (permitted) {
-        return scanner.updateVideoInputDevices().then(devices => {
-          this.user.cameras = devices;
-          return true;
-        }).catch(reason => {
-          this.alertify.error('Die Liste der verfügbaren Kameras konnte nicht abgefragt werden: ' + reason);
-          return false;
-        });
-      }
-    }).catch(reason => {
-      this.alertify.error('Die Kameras konnten nicht abgefragt werden: ' + reason);
-      return false;
-    });
-  }
+
 }
