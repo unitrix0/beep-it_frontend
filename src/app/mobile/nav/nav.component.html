@@ -1,8 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#">
-      <i class="fas fa-barcode mr-1"></i>Beep
-    </a>
+    <div class="row">
+      <div class="col col-3 d-flex align-self-center">
+        <i class="fas fa-chevron-left fa-2x align-middle"></i>
+      </div>
+      <div class="col col-9">
+        <a class="navbar-brand" [routerLink]="['/main/scan']">
+          <i class="fas fa-barcode mr-1"></i>Beep
+        </a>
+      </div>
+    </div>
   </div>
 </nav>
 
