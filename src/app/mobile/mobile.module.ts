@@ -9,10 +9,11 @@ import { ButtonBarComponent } from './button-bar/button-bar.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { ArticleDetailsComponent } from './articles/article-details/article-details.component';
 
 
 @NgModule({
-  declarations: [ScanComponent, MainContainerComponent, NavComponent, ButtonBarComponent, ArticlesComponent, ShoppingListComponent],
+  declarations: [ScanComponent, MainContainerComponent, NavComponent, ButtonBarComponent, ArticlesComponent, ShoppingListComponent, ArticleDetailsComponent],
     imports: [
         CommonModule,
         MobileRoutingModule,

@@ -1,47 +1,11 @@
 <div class="d-flex flex-column h-100">
-  <div style="width:100%; margin: 0 auto;">
-    <app-nav></app-nav>
+  <div class="full-width">
+    <app-nav [show]="backUrlStack.length >0" (navigateBack)="onNavigateBack()"></app-nav>
   </div>
   <div class="flex-grow-1 center-content">
-    <router-outlet></router-outlet>
-    <!--    <div style="width:100%;">-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--      <p>VARIABLE CONTENT THAT COULD BE LONG</p>-->
-    <!--    </div>-->
+    <router-outlet (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"></router-outlet>
   </div>
-
-  <div class="w-100" style="background-color: #d0d0d0; margin: 0 auto;">
-    <app-button-bar></app-button-bar>
+  <div class="w-100 full-width">
+    <app-button-bar [buttons]="navbarButtons"></app-button-bar>
   </div>
 </div>

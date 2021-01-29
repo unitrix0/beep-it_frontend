@@ -4,6 +4,7 @@ import {ScanComponent} from './scan/scan.component';
 import {MainContainerComponent} from './main-container/main-container.component';
 import {ArticlesComponent} from './articles/articles.component';
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
+import {ArticleDetailsComponent} from './articles/article-details/article-details.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
     children: [
       {path: 'scan', component: ScanComponent},
       {path: 'articles', component: ArticlesComponent},
-      {path: 'shopping-list', component: ShoppingListComponent}
+      {path: 'shopping-list', component: ShoppingListComponent},
+      {path: 'article/:barcode', component: ArticleDetailsComponent}
     ]
   }
 

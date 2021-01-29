@@ -1,21 +1,27 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {ArticlesService} from '../../_services/articles.service';
 import {Article} from '../../shared/_models/article';
 import {ArticlesFilter} from '../../shared/_models/articles-filter';
+import {EventEmitter} from 'events';
+import {NavigationComponent} from '../navigation-component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.css']
 })
-export class ArticlesComponent implements OnInit {
+export class ArticlesComponent implements OnInit, NavigationComponent {
+
+  @Output() testEvent = new EventEmitter();
 
   articles: Article[];
+  // TODO EnvironmentId
   filter: ArticlesFilter = {environmentId: '3', storeId: 0, isOpened: false, keepOnStock: false, isOnStock: false, nameOrEan: ''};
   private maxPages: number;
   private pagesLoaded = 1;
 
-  constructor(public articlesService: ArticlesService) {
+  constructor(public articlesService: ArticlesService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -40,4 +46,14 @@ export class ArticlesComponent implements OnInit {
         });
     }
   }
+
+  onClick(id: string) {
+    this.router.navigate([`main/article/${id}`])
+      .catch(reason => console.log(reason));
+  }
+
+  getBackUrl(): string {
+    return '/main/articles';
+  }
+
 }

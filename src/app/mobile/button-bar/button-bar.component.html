@@ -1,14 +1,6 @@
 <div class="btn-group" role="group">
-  <button class="btn btn-info" [routerLink]="['/main/scan']" routerLinkActive="active">
-    <i class="fas fa-receipt fa-17"></i>
-  </button>
-  <button class="btn btn-info" [routerLink]="['/main/articles']" routerLinkActive="active">
-    <i class="fas fa-box fa-17"></i>
-  </button>
-  <button class="btn btn-info " [routerLink]="['/main/shopping-list']" routerLinkActive="active">
-    <i class="fas fa-shopping-cart fa-17"></i>
-  </button>
-  <button class="btn btn-info" [routerLink]="['/main/users']" routerLinkActive="active">
-    <i class="fas fa-cog fa-17"></i>
+  <button class="btn btn-info" [routerLink]="[button.routerLink]" routerLinkActive="active"
+          *ngFor="let button of buttons">
+    <i class="fas fa-17" [ngClass]="button.icon"></i>
   </button>
 </div>

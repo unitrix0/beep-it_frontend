@@ -1,5 +1,5 @@
 <div infiniteScroll (scrolled)="loadMore()" [fromRoot]="true" [infiniteScrollContainer]="'.center-content'">
-  <ul class="list-group" *ngFor="let article of articles">
+  <ul class="list-group ml-1 mr-2" *ngFor="let article of articles">
     <li class="list-group-item">
       <div class="container">
         <div class="row">
@@ -7,7 +7,7 @@
             <img [src]="article.imageUrl" [class.img-thumbnail]="article.imageUrl"
                  style="max-height: 40px; max-width: 40px; min-height: 40px">
           </div>
-          <div class="col">
+          <div class="col" (click)="onClick(article.barcode)">
             {{article.name}}
           </div>
         </div>
