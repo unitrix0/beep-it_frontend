@@ -24,6 +24,7 @@ export class MainContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadBackUrlStack();
   }
 
   onActivate(component: any) {
@@ -32,13 +33,20 @@ export class MainContainerComponent implements OnInit {
       const backUrl = this.deactivatingComponentBackUrl;
 
       console.log(`Backurl: ${backUrl} ActivateBack: ${activatingBackUrl}`);
-      const navFromToMainPage = this.navbarButtons.findIndex(b => b.routerLink === activatingBackUrl) > -1 &&
-        this.navbarButtons.findIndex(b => b.routerLink === backUrl) > -1 &&
-        this.backUrlStack.length === 0;
+      // const navFromToMainPage = this.navbarButtons.findIndex(b => b.routerLink === activatingBackUrl) > -1 &&
+      //   this.navbarButtons.findIndex(b => b.routerLink === backUrl) > -1 &&
+      //   this.backUrlStack.length === 0;
 
-      if (backUrl !== '' && !navFromToMainPage) {
+      if (this.navbarButtons.findIndex(b => b.routerLink === activatingBackUrl) > -1) {
+        this.backUrlStack = [];
+        this.saveBackUrlStack();
+        return;
+      }
+
+      if (backUrl !== '') {
         console.log(`Added ${backUrl}`);
         this.backUrlStack.unshift(backUrl);
+        this.saveBackUrlStack();
       }
     }
   }
@@ -55,10 +63,19 @@ export class MainContainerComponent implements OnInit {
       .then(() => {
         this.navigatingBack = false;
         this.backUrlStack.shift();
+        this.saveBackUrlStack();
       })
       .catch(reason => {
         this.navigatingBack = false;
         console.log(`Navigation failed: ${reason}`);
       });
+  }
+
+  private loadBackUrlStack() {
+    this.backUrlStack = localStorage.getItem('backUrlStack').split(',');
+  }
+
+  private saveBackUrlStack() {
+    localStorage.setItem('backUrlStack', this.backUrlStack.join(','));
   }
 }
