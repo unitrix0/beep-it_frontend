@@ -1,4 +1,8 @@
 .size{
-  max-width: 130px;
-  max-height: 130px;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+h5 {
+  margin-bottom: .25rem !important;
 }

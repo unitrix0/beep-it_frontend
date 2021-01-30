@@ -75,6 +75,10 @@ select.form-control-sm {
   cursor: pointer;
 }
 
-.cursor-link{
+.cursor-link {
   cursor: pointer;
+}
+
+.border-dark {
+  border-color: darkgrey !important;
 }
