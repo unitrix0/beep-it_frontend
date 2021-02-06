@@ -10,12 +10,15 @@ import {ArticlesComponent} from './articles/articles.component';
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {ArticleContainerComponent} from './articles/article-container/article-container.component';
-import {PageItemComponent} from './articles/article-container/page-item/page-item.component';
+import {PageSectionComponent} from './articles/article-container/page-section/page-section.component';
 import {BaseDataComponent} from './articles/article-container/base-data/base-data.component';
 import {StockSettingsComponent} from './articles/article-container/stock-settings/stock-settings.component';
 import {StoresComponent} from './articles/article-container/stores/stores.component';
 import {StockComponent} from './articles/article-container/stock/stock.component';
 import {ArticleDetailsComponent} from './articles/article-details/article-details.component';
+import { TextBoxComponent } from './shared/section-components/text-box/text-box.component';
+import { ToggleComponent } from './shared/section-components/toggle/toggle.component';
+import { SelectComponent } from './shared/section-components/select/select.component';
 
 
 @NgModule({
@@ -27,12 +30,15 @@ import {ArticleDetailsComponent} from './articles/article-details/article-detail
     ArticlesComponent,
     ShoppingListComponent,
     ArticleContainerComponent,
-    PageItemComponent,
+    PageSectionComponent,
     BaseDataComponent,
     StockSettingsComponent,
     StoresComponent,
     StockComponent,
-    ArticleDetailsComponent],
+    ArticleDetailsComponent,
+    TextBoxComponent,
+    ToggleComponent,
+    SelectComponent],
   imports: [
     CommonModule,
     MobileRoutingModule,

@@ -1,0 +1,25 @@
+.input-group-text, .form-control{
+  background: unset !important;
+  padding-right: 0.5rem !important;
+}
+.input-group-text{
+  color: black;
+  padding: 0 !important;
+}
+
+.input-group-sm{
+  padding: 0;
+}
+
+.ellipsis{
+  text-overflow: ellipsis
+}
+
+.form-group{
+  margin-bottom: 0;
+}
+
+.img-group {
+  min-width: 12px;
+  max-width: 30px;
+}

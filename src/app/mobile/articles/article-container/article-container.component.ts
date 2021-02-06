@@ -7,12 +7,10 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ArticleContainerComponent implements OnInit {
 
-
   constructor() {
   }
 
   ngOnInit(): void {
-
   }
 
 

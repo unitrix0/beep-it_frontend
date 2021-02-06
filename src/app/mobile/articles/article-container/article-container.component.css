@@ -1,0 +1,7 @@
+.fas {
+  color: darkgrey;
+}
+
+button.active > i.fas {
+  color: black;
+}
