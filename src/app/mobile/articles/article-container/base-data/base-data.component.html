@@ -1,6 +1,19 @@
-<app-page-item [title]="'Aritkel Daten'">
-  <app-text-box [label]="'Name'" [value]="'Barilla Spaghetti n.5 10min Barilla Spaghetti n.5 10min'"></app-text-box>
-  <app-text-box [bottomBorder]="false"
-    [label]="'Name'"
-    [value]="'Barilla Spaghetti n.5 10min Barilla Spaghetti n.5 10min'"></app-text-box>
-</app-page-item>
+<app-page-section [title]="'Aritkel Daten'">
+  <app-text-box component [label]="'Name'" [value]="'Barilla Spaghetti n.5'"></app-text-box>
+  <app-text-box component [label]="'Inhaltsmenge'"
+                [value]="'5l'"></app-text-box>
+  <app-toggle component [label]="'Switch this Toggle'"></app-toggle>
+</app-page-section>
+<app-page-section [title]="'Aritkel Daten'">
+    <app-icon-container>
+      <app-text-box component [label]="'Name'" [value]="'Barilla Spaghetti n.5'"></app-text-box>
+    </app-icon-container>
+    <app-icon-container>
+      <i class="fas fa-mobile-alt" icon></i>
+      <app-text-box component [label]="'Name'"
+                    [value]="'Barilla Spaghetti n.5 10min Barilla Spaghetti n.5 10min'"></app-text-box>
+    </app-icon-container>
+    <app-icon-container>
+      <app-toggle component [label]="'Switch this Toggle'"></app-toggle>
+    </app-icon-container>
+</app-page-section>

@@ -1,1 +1,13 @@
-<p>toggle works!</p>
+<div class="row d-flex align-content-center">
+  <div class="form-group w-100">
+    <div class="input-group input-group-sm d-flex justify-content-between align-items-center">
+      <div class="input-group-prepend" [class.border-bottom]="bottomBorder">
+        <span class="input-group-text">{{label}}</span>
+      </div>
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="">
+        <label class="custom-control-label" for="customSwitch1"></label>
+      </div>
+    </div>
+  </div>
+</div>

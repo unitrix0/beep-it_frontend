@@ -19,6 +19,7 @@ import {ArticleDetailsComponent} from './articles/article-details/article-detail
 import { TextBoxComponent } from './shared/section-components/text-box/text-box.component';
 import { ToggleComponent } from './shared/section-components/toggle/toggle.component';
 import { SelectComponent } from './shared/section-components/select/select.component';
+import { IconContainerComponent } from './shared/section-components/icon-container/icon-container.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { SelectComponent } from './shared/section-components/select/select.compo
     ArticleDetailsComponent,
     TextBoxComponent,
     ToggleComponent,
-    SelectComponent],
+    SelectComponent,
+    IconContainerComponent],
   imports: [
     CommonModule,
     MobileRoutingModule,
