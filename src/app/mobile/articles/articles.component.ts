@@ -48,7 +48,7 @@ export class ArticlesComponent implements OnInit, NavigationComponent {
   }
 
   onClick(id: string) {
-    this.router.navigate([`main/article/${id}`])
+    this.router.navigate([`main/articles/${id}`])
       .catch(reason => console.log(reason));
   }
 

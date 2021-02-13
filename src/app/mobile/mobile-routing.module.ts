@@ -18,7 +18,7 @@ const routes: Routes = [
       {path: 'articles', component: ArticlesComponent},
       {path: 'shopping-list', component: ShoppingListComponent},
       {
-        path: 'article/:barcode', component: ArticleContainerComponent,
+        path: 'articles/:barcode', component: ArticleContainerComponent,
         children: [
           {path: '', redirectTo: 'basedata', pathMatch: 'full'},
           {path: 'basedata', component: BaseDataComponent},
