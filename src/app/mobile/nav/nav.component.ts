@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BackButtonService} from '../shared/services/back-button.service';
 
 
 @Component({
@@ -7,15 +8,13 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
-  @Input() show: boolean;
-  @Output() navigateBack: EventEmitter<null> = new EventEmitter<null>();
-  constructor() { }
+  constructor(public backButtonService: BackButtonService) {
+  }
 
   ngOnInit(): void {
   }
 
   onBackClicked() {
-    this.navigateBack.emit(null);
+    this.backButtonService.navigateBack();
   }
 }

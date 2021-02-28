@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col col-3 d-flex align-self-center">
-        <button class="btn btn-sm btn-secondary" *ngIf="show" (click)="onBackClicked()">
+        <button class="btn btn-sm btn-secondary" *ngIf="backButtonService.hasEntries" (click)="onBackClicked()">
           <i class="fas fa-angle-left fa-2x align-middle"></i>
         </button>
 

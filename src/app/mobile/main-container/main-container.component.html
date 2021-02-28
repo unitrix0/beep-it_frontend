@@ -1,8 +1,8 @@
 <div class="d-flex flex-column h-100">
   <div class="full-width">
-    <app-nav [show]="backUrlStack.length >0" (navigateBack)="onNavigateBack()"></app-nav>
+    <app-nav></app-nav>
   </div>
-  <div class="flex-grow-1 center-content">
+  <div class="flex-grow-1 center-content bg-grey">
     <router-outlet (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"></router-outlet>
   </div>
   <div class="w-100 full-width">

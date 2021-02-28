@@ -4,11 +4,11 @@ import {ScanComponent} from './scan/scan.component';
 import {MainContainerComponent} from './main-container/main-container.component';
 import {ArticlesComponent} from './articles/articles.component';
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
-import {ArticleContainerComponent} from './articles/article-container/article-container.component';
-import {BaseDataComponent} from './articles/article-container/base-data/base-data.component';
-import {StockSettingsComponent} from './articles/article-container/stock-settings/stock-settings.component';
-import {StoresComponent} from './articles/article-container/stores/stores.component';
-import {StockComponent} from './articles/article-container/stock/stock.component';
+import {ArticleSubNavContainerComponent} from './articles/article-sub-nav-container/article-sub-nav-container.component';
+import {BaseDataComponent} from './articles/article-details/base-data/base-data.component';
+import {StockSettingsComponent} from './articles/article-details/stock-settings/stock-settings.component';
+import {StoresComponent} from './articles/article-details/stores/stores.component';
+import {StockComponent} from './articles/article-details/stock/stock.component';
 
 const routes: Routes = [
   {
@@ -18,7 +18,7 @@ const routes: Routes = [
       {path: 'articles', component: ArticlesComponent},
       {path: 'shopping-list', component: ShoppingListComponent},
       {
-        path: 'articles/:barcode', component: ArticleContainerComponent,
+        path: 'articles/:barcode', component: ArticleSubNavContainerComponent,
         children: [
           {path: '', redirectTo: 'basedata', pathMatch: 'full'},
           {path: 'basedata', component: BaseDataComponent},

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {NavigationComponent} from '../navigation-component';
 
 @Component({
@@ -7,6 +7,7 @@ import {NavigationComponent} from '../navigation-component';
   styleUrls: ['./scan.component.css']
 })
 export class ScanComponent implements OnInit, NavigationComponent {
+  subNavigation: EventEmitter<any>;
 
   constructor() { }
 
