@@ -1,0 +1,17 @@
+
+  <div class="row border-bottom border-dark">
+    <h5 class="mt-3">Artikel Details</h5>
+  </div>
+  <div class="row bg-white border-bottom border-dark">
+    <div class="col text-center">
+      <img [src]="article?.imageUrl" class="mb-1 mt-2 size">
+      <h6>{{article?.name}}</h6>
+    </div>
+  </div>
+  <div class="row bg-white mb-1 border-bottom border-dark">
+    <div class="col p-0">
+      <ng-content select="[buttonBar]"></ng-content>
+    </div>
+  </div>
+  <ng-content select="[component]"></ng-content>
+

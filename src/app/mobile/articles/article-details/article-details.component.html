@@ -1,33 +1,22 @@
-<div class="container-fluid h-100" style="background-color: rgb(239,239,244)">
-  <div class="row border-bottom border-dark">
-    <h5 class="mt-3">Artikel Details</h5>
+<app-article-details-header>
+  <div class="btn-group btn-group-sm w-100" role="group" buttonBar>
+    <button class="btn btn-secondary" [routerLink]="['basedata']" routerLinkActive="active">
+      <i class="fas fa-list-alt fa-2x"></i>
+      <!--          <div>Artikeldaten</div>-->
+    </button>
+    <button class="btn btn-secondary" [routerLink]="['stocksettings']" routerLinkActive="active">
+      <i class="fas fa-tools fa-2x"></i>
+      <!--          <div>Einstellungen</div>-->
+    </button>
+    <button class="btn btn-secondary" [routerLink]="['stores']" routerLinkActive="active">
+      <i class="fas fa-store fa-2x"></i>
+      <!--          <div>Läden</div>-->
+    </button>
+    <button class="btn btn-secondary" [routerLink]="['stock']" routerLinkActive="active">
+      <i class="fas fa-warehouse fa-2x"></i>
+      <!--          <div>Vorrat</div>-->
+    </button>
   </div>
-  <div class="row bg-white border-bottom border-dark">
-    <div class="col text-center">
-      <img [src]="article?.imageUrl" class="mb-1 mt-2 size">
-      <h6>{{article?.name}}</h6>
-    </div>
-  </div>
-  <div class="row bg-white mb-1 border-bottom border-dark">
-    <div class="col p-0">
-      <ng-content select="[buttonBar]"></ng-content>
 
-
-      <!--      <div class="btn-group btn-group-sm w-100" role="group">-->
-      <!--        <button class="btn btn-secondary">-->
-      <!--          <i class="fas fa-angle-double-down"></i>-->
-      <!--          <div>Einbuchen</div>-->
-      <!--        </button>-->
-      <!--        <button class="btn btn-secondary ml-1 mr-1">-->
-      <!--          <i class="fas fa-angle-double-up"></i>-->
-      <!--          <div>Ausbuchen</div>-->
-      <!--        </button>-->
-      <!--        <button class="btn btn-secondary">-->
-      <!--          <i class="fas fa-box-open"></i>-->
-      <!--          <div>geöffnet</div>-->
-      <!--        </button>-->
-      <!--      </div>-->
-    </div>
-  </div>
-  <ng-content select="[component]"></ng-content>
-</div>
+  <router-outlet component></router-outlet>
+</app-article-details-header>
