@@ -9,17 +9,22 @@ import {ButtonBarComponent} from './button-bar/button-bar.component';
 import {ArticlesComponent} from './articles/articles.component';
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
-import {ArticleContainerComponent} from './articles/article-container/article-container.component';
-import {PageSectionComponent} from './articles/article-container/page-section/page-section.component';
-import {BaseDataComponent} from './articles/article-container/base-data/base-data.component';
-import {StockSettingsComponent} from './articles/article-container/stock-settings/stock-settings.component';
-import {StoresComponent} from './articles/article-container/stores/stores.component';
-import {StockComponent} from './articles/article-container/stock/stock.component';
+import {ArticleSubNavContainerComponent} from './articles/article-sub-nav-container/article-sub-nav-container.component';
+import {PageSectionComponent} from './articles/article-details/page-section/page-section.component';
+import {BaseDataComponent} from './articles/article-details/base-data/base-data.component';
+import {StockSettingsComponent} from './articles/article-details/stock-settings/stock-settings.component';
+import {StoresComponent} from './articles/article-details/stores/stores.component';
+import {StockComponent} from './articles/article-details/stock/stock.component';
+import {ArticleDetailsHeaderComponent} from './articles/article-details/article-details-header/article-details-header.component';
+import {TextBoxComponent} from './shared/section-components/text-box/text-box.component';
+import {ToggleComponent} from './shared/section-components/toggle/toggle.component';
+import {SelectComponent} from './shared/section-components/select/select.component';
+import {IconContainerComponent} from './shared/section-components/icon-container/icon-container.component';
+import {SubNavigationHostDirective} from './shared/sub-navigation/sub-navigation-host.directive';
+import {SubNavigationOutletComponent} from './shared/sub-navigation/sub-navigation-outlet.component';
+import {SubNavigationLinkDirective} from './shared/sub-navigation/sub-navigation-link.directive';
 import {ArticleDetailsComponent} from './articles/article-details/article-details.component';
-import { TextBoxComponent } from './shared/section-components/text-box/text-box.component';
-import { ToggleComponent } from './shared/section-components/toggle/toggle.component';
-import { SelectComponent } from './shared/section-components/select/select.component';
-import { IconContainerComponent } from './shared/section-components/icon-container/icon-container.component';
+import { TextBoxEditComponent } from './shared/section-components/text-box/text-box-edit/text-box-edit.component';
 
 
 @NgModule({
@@ -30,17 +35,22 @@ import { IconContainerComponent } from './shared/section-components/icon-contain
     ButtonBarComponent,
     ArticlesComponent,
     ShoppingListComponent,
-    ArticleContainerComponent,
+    ArticleSubNavContainerComponent,
     PageSectionComponent,
     BaseDataComponent,
     StockSettingsComponent,
     StoresComponent,
     StockComponent,
-    ArticleDetailsComponent,
+    ArticleDetailsHeaderComponent,
     TextBoxComponent,
     ToggleComponent,
     SelectComponent,
-    IconContainerComponent],
+    IconContainerComponent,
+    SubNavigationHostDirective,
+    SubNavigationOutletComponent,
+    SubNavigationLinkDirective,
+    ArticleDetailsComponent,
+    TextBoxEditComponent],
   imports: [
     CommonModule,
     MobileRoutingModule,

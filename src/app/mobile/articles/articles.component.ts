@@ -1,10 +1,9 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ArticlesService} from '../../_services/articles.service';
 import {Article} from '../../shared/_models/article';
 import {ArticlesFilter} from '../../shared/_models/articles-filter';
-import {EventEmitter} from 'events';
-import {NavigationComponent} from '../navigation-component';
 import {Router} from '@angular/router';
+import {NavigationComponent} from '../navigation-component';
 
 @Component({
   selector: 'app-articles',
@@ -12,9 +11,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./articles.component.css']
 })
 export class ArticlesComponent implements OnInit, NavigationComponent {
-
-  @Output() testEvent = new EventEmitter();
-
   articles: Article[];
   // TODO EnvironmentId
   filter: ArticlesFilter = {environmentId: '3', storeId: 0, isOpened: false, keepOnStock: false, isOnStock: false, nameOrEan: ''};

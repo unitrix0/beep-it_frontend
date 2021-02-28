@@ -10,7 +10,10 @@ export class TextBoxComponent implements OnInit {
   @Input() label: string;
   @Input() value: string;
   @Input() bottomBorder = true;
-  constructor() { }
+
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

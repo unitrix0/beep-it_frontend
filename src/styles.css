@@ -82,3 +82,7 @@ select.form-control-sm {
 .border-dark {
   border-color: darkgrey !important;
 }
+
+.bg-grey {
+  background-color: rgb(239,239,244);
+}
