@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavigationComponent} from '../navigation-component';
+import {NavigationComponent} from '../shared/sub-navigation/navigation-component';
 
 @Component({
   selector: 'app-shopping-list',
@@ -15,5 +15,8 @@ export class ShoppingListComponent implements OnInit, NavigationComponent {
 
   getBackUrl(): string {
     return '/main/shopping-list';
+  }
+
+  onNavigatedTo(params: Map<string, any>): void {
   }
 }

@@ -14,7 +14,6 @@ export class BackButtonService {
     this.loadBackUrlStack();
   }
 
-
   get navigatingBack(): boolean {
     return this._navigatingBack;
   }

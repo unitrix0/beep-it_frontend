@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NavigationComponent} from '../../../../navigation-component';
+import {NavigationComponent} from '../../../sub-navigation/navigation-component';
 
 @Component({
   selector: 'app-text-box-edit',
@@ -16,5 +16,9 @@ export class TextBoxEditComponent implements OnInit, NavigationComponent {
 
   getBackUrl(): string {
     return this.backUrl;
+  }
+
+  onNavigatedTo(params: Map<string, any>): void {
+    console.log(params);
   }
 }

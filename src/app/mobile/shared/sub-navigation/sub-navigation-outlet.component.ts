@@ -2,8 +2,9 @@ import {Component, ComponentFactoryResolver, ComponentRef, EventEmitter, Input, 
 import {SubNavigationRuleItem} from './sub-navigation-rule-item';
 import {SubNavigationService} from './sub-navigation.service';
 import {SubNavigationHostDirective} from './sub-navigation-host.directive';
-import {NavigationComponent} from '../../navigation-component';
+import {NavigationComponent} from './navigation-component';
 import {Subscription} from 'rxjs';
+import {NavigatingEventArgs} from './navigating-event-args';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -19,7 +20,7 @@ export class SubNavigationOutletComponent implements OnInit, OnDestroy {
   @Output() activating: EventEmitter<any> = new EventEmitter<any>();
   @Output() deactivating: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild(SubNavigationHostDirective, {static: true}) componentHost: SubNavigationHostDirective;
-  private currentComponent: any;
+  private currentComponent: NavigationComponent;
   private navigatingSubscription: Subscription;
   private componentRef: ComponentRef<any>;
 
@@ -27,25 +28,26 @@ export class SubNavigationOutletComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.createComponent(this.rules[0]);
+    this.createComponent(this.rules[0], new Map<string, any>());
 
-    this.navigatingSubscription = this.navService.navigating.subscribe(path => {
-      const rule = this.rules.find(r => r.path === path);
+    this.navigatingSubscription = this.navService.navigating.subscribe((args: NavigatingEventArgs) => {
+      const rule = this.rules.find(r => r.path === args.path);
 
       this.deactivating.emit(this.currentComponent);
-      this.createComponent(rule);
+      this.createComponent(rule, args.params);
       this.activating.emit(this.currentComponent);
     });
   }
 
-  private createComponent(rule: SubNavigationRuleItem) {
+  private createComponent(rule: SubNavigationRuleItem, navigationParameters: Map<string, any>) {
     const componentFactory = this.factoryResolver.resolveComponentFactory(rule.component);
 
     const viewContainerRef = this.componentHost.viewContainerRef;
     viewContainerRef.clear();
 
     this.componentRef = viewContainerRef.createComponent(componentFactory);
-    this.currentComponent = this.componentRef.instance;
+    this.currentComponent = this.componentRef.instance as NavigationComponent;
+    this.currentComponent.onNavigatedTo(navigationParameters);
   }
 
   ngOnDestroy(): void {

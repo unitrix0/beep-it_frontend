@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
-import {NavigationComponent} from '../navigation-component';
+import {NavigationComponent} from '../shared/sub-navigation/navigation-component';
 
 @Component({
   selector: 'app-scan',
@@ -18,5 +18,6 @@ export class ScanComponent implements OnInit, NavigationComponent {
     return '/main/scan';
   }
 
-
+  onNavigatedTo(params: Map<string, any>): void {
+  }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SubNavigationService} from '../../../shared/sub-navigation/sub-navigation.service';
 
 @Component({
   selector: 'app-base-data',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseDataComponent implements OnInit {
 
-  constructor() { }
+  constructor(private navSrv: SubNavigationService) {
+  }
 
   ngOnInit(): void {
   }
 
+  nameClicked(event: Event) {
+    const params = new Map<string, any>();
+    params.set('test', this);
+    this.navSrv.navigateTo('nameEdit', params);
+  }
 }

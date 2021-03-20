@@ -3,7 +3,7 @@ import {ArticlesService} from '../../_services/articles.service';
 import {Article} from '../../shared/_models/article';
 import {ArticlesFilter} from '../../shared/_models/articles-filter';
 import {Router} from '@angular/router';
-import {NavigationComponent} from '../navigation-component';
+import {NavigationComponent} from '../shared/sub-navigation/navigation-component';
 
 @Component({
   selector: 'app-articles',
@@ -46,6 +46,9 @@ export class ArticlesComponent implements OnInit, NavigationComponent {
   onClick(id: string) {
     this.router.navigate([`main/articles/${id}`])
       .catch(reason => console.log(reason));
+  }
+
+  onNavigatedTo(params: Map<string, any>): void {
   }
 
   getBackUrl(): string {

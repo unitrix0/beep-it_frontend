@@ -3,7 +3,7 @@ import {SubNavigationRuleItem} from '../../shared/sub-navigation/sub-navigation-
 import {ArticleDetailsComponent} from '../article-details/article-details.component';
 import {BackButtonService} from '../../shared/services/back-button.service';
 import {SubNavigationService} from '../../shared/sub-navigation/sub-navigation.service';
-import {NavigationComponent} from '../../navigation-component';
+import {NavigationComponent} from '../../shared/sub-navigation/navigation-component';
 import {TextBoxEditComponent} from '../../shared/section-components/text-box/text-box-edit/text-box-edit.component';
 
 @Component({
@@ -21,7 +21,7 @@ export class ArticleSubNavContainerComponent implements OnInit {
   constructor(private backButtonService: BackButtonService, private navService: SubNavigationService) {
     backButtonService.backClicked.asObservable().subscribe(item => {
       if (item.origin === ArticleSubNavContainerComponent) {
-        navService.navigateTo(item.path);
+        navService.navigateTo(item.path, null);
       }
     });
   }
@@ -32,10 +32,8 @@ export class ArticleSubNavContainerComponent implements OnInit {
 
   onActivating(event: any) {
     if (!this.backButtonService.navigatingBack && this.deactivatingComponentBackUrl) {
-      const backUrl = this.deactivatingComponentBackUrl;
-
-      if (backUrl !== '') {
-        this.backButtonService.addToStack({path: backUrl, origin: ArticleSubNavContainerComponent});
+      if (this.deactivatingComponentBackUrl !== '') {
+        this.backButtonService.addToStack({path: this.deactivatingComponentBackUrl, origin: ArticleSubNavContainerComponent});
       }
     }
   }

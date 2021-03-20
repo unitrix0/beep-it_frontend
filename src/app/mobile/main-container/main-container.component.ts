@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NavigationComponent} from '../navigation-component';
+import {NavigationComponent} from '../shared/sub-navigation/navigation-component';
 import {Router} from '@angular/router';
 import {ButtonBarItem} from '../button-bar/button-bar-item';
 import {BackButtonService} from '../shared/services/back-button.service';

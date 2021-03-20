@@ -1,6 +1,6 @@
 <app-page-section [title]="'Aritkel Daten'">
   <app-text-box component [label]="'Name'" [value]="'Barilla Spaghetti n.5'"
-                [SubNavLink]="'nameEdit'"></app-text-box>
+  (clicked)="nameClicked($event)"></app-text-box>
   <app-text-box component [label]="'Inhaltsmenge'"
                 [value]="'5l'"></app-text-box>
   <app-toggle component [label]="'Inhaltsmenge'"></app-toggle>

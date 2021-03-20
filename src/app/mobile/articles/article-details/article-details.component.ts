@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NavigationComponent} from '../../navigation-component';
+import {NavigationComponent} from '../../shared/sub-navigation/navigation-component';
 
 @Component({
   selector: 'app-article-details',
@@ -15,5 +15,8 @@ export class ArticleDetailsComponent implements OnInit, NavigationComponent {
 
   getBackUrl(): string {
     return 'baseView';
+  }
+
+  onNavigatedTo(params: Map<string, any>): void {
   }
 }
