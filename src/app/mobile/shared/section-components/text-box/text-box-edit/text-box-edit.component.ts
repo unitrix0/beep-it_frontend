@@ -8,6 +8,8 @@ import {NavigationComponent} from '../../../sub-navigation/navigation-component'
 })
 export class TextBoxEditComponent implements OnInit, NavigationComponent {
   @Input() backUrl: string;
+  textBoxValue: string;
+  textBoxLabel: string;
 
   constructor() { }
 
@@ -19,6 +21,7 @@ export class TextBoxEditComponent implements OnInit, NavigationComponent {
   }
 
   onNavigatedTo(params: Map<string, any>): void {
-    console.log(params);
+    this.textBoxValue = params.getTextBoxEditValue();
+    this.textBoxLabel = params.getTextBoxEditLabel();
   }
 }
