@@ -17,11 +17,12 @@ export class ArticleSubNavContainerComponent implements OnInit {
     {path: 'baseView', component: ArticleDetailsComponent},
     {path: 'nameEdit', component: TextBoxEditComponent}
   ];
+  startComponent = ArticleDetailsComponent;
 
   constructor(private backButtonService: BackButtonService, private navService: SubNavigationService) {
     backButtonService.backClicked.asObservable().subscribe(item => {
       if (item.origin === ArticleSubNavContainerComponent) {
-        navService.navigateTo(item.path, null);
+        navService.navigateTo(item.origin, null);
       }
     });
   }

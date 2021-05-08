@@ -1,5 +1,6 @@
-import {EventEmitter, Injectable, Output} from '@angular/core';
+import {EventEmitter, Injectable, Output, Type} from '@angular/core';
 import {NavigatingEventArgs} from './navigating-event-args';
+import {NavigationComponent} from './navigation-component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class SubNavigationService {
   constructor() {
   }
 
-  navigateTo(path: string, params: Map<string, any>) {
+  navigateTo(component: Type<NavigationComponent>, params: Map<string, any>) {
     const p = params ?? new Map<string, any>();
-    this.navigating.emit(new NavigatingEventArgs(path, p));
+    this.navigating.emit(new NavigatingEventArgs(component, p));
   }
 }

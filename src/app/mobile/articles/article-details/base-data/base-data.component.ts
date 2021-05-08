@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SubNavigationService} from '../../../shared/sub-navigation/sub-navigation.service';
 import '../../../shared/section-components/text-box/text-box-edit/text-box-edit-extensions';
+import {TextBoxEditComponent} from '../../../shared/section-components/text-box/text-box-edit/text-box-edit.component';
 
 @Component({
   selector: 'app-base-data',
@@ -17,8 +18,7 @@ export class BaseDataComponent implements OnInit {
 
   nameClicked(event: Event) {
     const params = new Map<string, any>();
-    params.setTextBoxEditValue((event.target as HTMLInputElement).value);
-    params.setTextBoxEditLabel('Name');
-    this.navSrv.navigateTo('nameEdit', params);
+    params.setTextBoxEditParams('Name', (event.target as HTMLInputElement).value);
+    this.navSrv.navigateTo(TextBoxEditComponent, params);
   }
 }

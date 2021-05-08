@@ -1,25 +1,21 @@
 export {};
 declare global {
   interface Map<K, V> {
-    setTextBoxEditValue(value: string): void;
+    setTextBoxEditParams(label: string, value: string): void;
+
     getTextBoxEditValue(): string;
-    setTextBoxEditLabel(value: string): void;
     getTextBoxEditLabel(): string;
   }
 }
 
-Map.prototype.setTextBoxEditValue = function (value) {
+Map.prototype.setTextBoxEditParams = function (label, value) {
+  this.set('textBoxLabel', label);
   this.set('textBoxVal', value);
 };
 
 Map.prototype.getTextBoxEditValue = function () {
   return this.get('textBoxVal');
 };
-
-Map.prototype.setTextBoxEditLabel = function (value) {
-  this.set('textBoxLabel', value);
-};
-
 Map.prototype.getTextBoxEditLabel = function () {
   return this.get('textBoxLabel');
 };
