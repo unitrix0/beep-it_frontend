@@ -57,7 +57,6 @@ import {ArticleOpenComponent} from './articles/article-open/article-open.compone
 import {Ng5SliderModule} from 'ng5-slider';
 import {ArticleOpenDialogComponent} from './articles/article-open-dialog/article-open-dialog.component';
 import {RequiredSelectDirective} from './_directives/required-select.directive';
-import {CustomFormsModule} from 'ngx-custom-validators';
 import {LocalStorageItemNames} from './_enums/local-storage-item-names.enum';
 import {ActivityLogComponent} from './scan/activity-log/activity-log.component';
 import {AccountActivationComponent} from './account-activation/account-activation.component';
@@ -158,7 +157,7 @@ registerLocaleData(localeCh, 'de-CH');
         ReactiveFormsModule,
         BrowserAnimationsModule,
         Ng5SliderModule,
-        CustomFormsModule,
+        // CustomFormsModule,
         CarouselModule
     ],
     providers: [

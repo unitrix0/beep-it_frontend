@@ -90,7 +90,8 @@
               <label for="confirmPassword">Bestätigen</label>
               <div class="input-group">
                 <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword"
-                       name="confirmPassword" required #confirmPw="ngModel" minlength="6" [equalTo]="pw">
+                       name="confirmPassword" required #confirmPw="ngModel" minlength="6">
+<!--                TODO Compare Passwords-->
                 <div class="input-group-append">
                   <button type="submit" class="ml-3 btn btn-sm btn-success" *ngIf="confirmPw.dirty && confirmPw.valid">
                     Ändern

@@ -9,11 +9,7 @@
 }
 
 .no-round-corners {
-  border-radius: 0rem;
-}
-
-.tab-bottom-line {
-  border-bottom: solid 1px;
+  border-radius: 0;
 }
 
 .list-group {
@@ -49,19 +45,11 @@ input[type=number] {
   .fa-trash-hidden {
     display: none;
   }
-
-  .fa-trash-show {
-    display: inline-block;
-  }
 }
 
-@media (max-width: 1199.98px) {
+@media (max-width: 1199px) {
   .fa-trash-alt,
   .fa-trash-hidden {
     color: grey;
-  }
-
-  .fa-trash-show {
-    color: black;
   }
 }

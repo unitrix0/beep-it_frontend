@@ -106,11 +106,11 @@ export class ArticleEditComponent implements OnInit {
       });
   }
 
-  private articleHasStore(storeId: number): boolean {
+  protected articleHasStore(storeId: number): boolean {
     return this.article.stores.find(s => s.storeId === storeId) != null;
   }
 
-  private addRemoveStore(articleId: number, storeId: number) {
+  protected addRemoveStore(articleId: number, storeId: number) {
     this.form.form.markAsDirty();
     if (this.permissions.hasPermissionOr(this.editArticlePermission)) {
       const idx = this.article.stores.findIndex(s => s.storeId === storeId);

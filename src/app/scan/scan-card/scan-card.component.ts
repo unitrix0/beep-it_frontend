@@ -20,7 +20,7 @@ export class ScanCardComponent implements OnInit {
   scanModes = ScanModes;
   private scanTimeout = 15;
   private timeoutCounter = 0;
-  private timeoutProgress: number;
+  protected timeoutProgress: number;
   private timer: Timer;
 
   constructor(private resetService: ResetScanService) {

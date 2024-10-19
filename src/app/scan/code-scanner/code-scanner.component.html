@@ -1,6 +1,6 @@
 <div class="container">
   <zxing-scanner
-    [formats]="['EAN_13']"
+    [formats]=[BarcodeFormat.EAN_13]
     (scanSuccess)="scanSuccess($event)"
     [autostart]="false">
   </zxing-scanner>

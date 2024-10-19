@@ -22,10 +22,10 @@ export class ArticleCheckOutComponent implements OnInit {
   selectedEntryId: number;
   showArticleOpen: boolean;
   actionButtonLabel: string;
-  private actionLabel: string;
-  private showCols = [StockListColumns.amount, StockListColumns.expireDate, StockListColumns.fillLevel];
-  private stockData: PagedStockList;
-  private selectedEntry: StockEntry;
+  protected actionLabel: string;
+  protected showCols = [StockListColumns.amount, StockListColumns.expireDate, StockListColumns.fillLevel];
+  protected stockData: PagedStockList;
+  protected selectedEntry: StockEntry;
 
   constructor(private articleData: ArticlesService, private alertify: AlertifyService) {
   }

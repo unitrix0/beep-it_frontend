@@ -5,46 +5,32 @@
   font-size: 8px;
 }
 
-.circle-transparent:before {
-  color: transparent;
-  position: relative;
-  top: 5px;
-  content: ' \25CF';
-  font-size: 10px;
-}
-
 @media (min-width: 1200px) {
   .button-group-spacer-xl {
     margin-right: 2.6rem;
   }
 }
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (min-width: 992px) and (max-width: 1199px) {
   .button-group-spacer-lg {
     margin-right: 2.95rem;
   }
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .button-group-spacer-md {
     margin-right: 1.65rem;
   }
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .button-group-spacer-sm {
-    margin-right: 2.25rem;
-  }
-}
-
-@media (max-width: 575.98px) {
+@media (max-width: 575px) {
   .button-group-spacer-xs {
     margin-right: 2.125rem;
   }
 }
 
 .no-round-corners {
-  border-radius: 0rem;
+  border-radius: 0;
 }
 
 

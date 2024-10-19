@@ -10,6 +10,7 @@ import {ArticleUserSettings} from '../../_models/articleUserSettings';
 import {StockListColumns} from '../../_enums/stock-list-columns.enum';
 import {BsModalService} from 'ngx-bootstrap/modal';
 import {PageChangedEvent} from 'ngx-bootstrap/pagination';
+import {PagedStockList} from '../../_models/paged-stock-list';
 
 
 @Component({
@@ -20,7 +21,7 @@ import {PageChangedEvent} from 'ngx-bootstrap/pagination';
 export class ArticleStockComponent implements OnInit {
   @Input() article: Article;
   @Input() articleUserSettings: ArticleUserSettings;
-  stockData: PaginatedResult<StockEntry[]>;
+  stockData: PagedStockList;
   withDateColumn = [StockListColumns.all];
   noDateColumn = [StockListColumns.amount, StockListColumns.fillLevel, StockListColumns.isOpened, StockListColumns.checkOut];
 

@@ -5,6 +5,7 @@ import {AlertifyService} from '../../_services/alertify.service';
 import {SelectCameraDialogComponent} from '../select-camera-dialog/select-camera-dialog.component';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {Tools} from '../../_helpers/tools';
+import {BarcodeFormat} from '@zxing/browser';
 
 @Component({
   selector: 'app-code-scanner',
@@ -117,4 +118,6 @@ export class CodeScannerComponent implements OnInit {
       this.alertify.error('Es konnte nicht auf die Kamera zugegriffen werden: ' + reason.message);
     });
   }
+
+  protected readonly BarcodeFormat = BarcodeFormat;
 }

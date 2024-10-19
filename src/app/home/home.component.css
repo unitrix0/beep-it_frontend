@@ -14,52 +14,30 @@
     padding-top: 370px;
     padding-bottom: 470px
   }
-
-  .padding-registration {
-    padding-top: 320px;
-    padding-bottom: 330px
-  }
 }
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (min-width: 992px) and (max-width: 1199px) {
   .padding-default-lg{
     padding-top: 272px;
     padding-bottom: 260px;
   }
-  .padding-registration-lg {
-    padding-top: 182px;
-    padding-bottom: 170px;
-  }
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .padding-default-md {
     padding-top: 362px;
     padding-bottom: 350px
   }
-
-  .padding-registration-md {
-    padding-top: 300px;
-    padding-bottom: 312px
-  }
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (min-width: 576px) and (max-width: 767px) {
   .padding-default-sm {
     padding-top: 120px;
   }
-
-  .padding-registration-sm{
-    padding-top: 150px;
-  }
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 575px) {
   .padding-default-xs {
-    padding-top: 170px;
-  }
-
-  .padding-registration-xs {
     padding-top: 170px;
   }
 }
@@ -115,8 +93,4 @@ img::-moz-selection {
 
 .background-default {
   background-color: rgba(255, 255, 255, 0.6)
-}
-
-.background-reg {
-  background-color: rgba(0, 0, 0, 0.6)
 }

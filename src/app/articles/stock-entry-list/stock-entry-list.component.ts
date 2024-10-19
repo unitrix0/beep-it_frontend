@@ -22,11 +22,11 @@ export class StockEntryListComponent implements OnInit {
   @Output() checkOutClicked = new EventEmitter<StockEntry>();
   @Output() openArticleClicked = new EventEmitter<{ mouseEvent: MouseEvent, entry: StockEntry }>();
   @Output() pageChanged = new EventEmitter<PageChangedEvent>();
-  private selectedEntryId: number;
-  private columns = StockListColumns;
-  private scanArticlePermission = PermissionFlags.isOwner | PermissionFlags.canScan;
+  protected selectedEntryId: number;
+  protected columns = StockListColumns;
+  protected scanArticlePermission = PermissionFlags.isOwner | PermissionFlags.canScan;
 
-  constructor(private articleData: ArticlesService, private permissionsService: PermissionsService) {
+  constructor(protected articleData: ArticlesService, protected permissionsService: PermissionsService) {
   }
 
   ngOnInit() {
@@ -61,7 +61,7 @@ export class StockEntryListComponent implements OnInit {
     return this.selectedColumns.length + 2;
   }
 
-  private showColumn(column: StockListColumns): boolean {
+  protected showColumn(column: StockListColumns): boolean {
     if (!this.selectedColumns) {
       return true;
     }

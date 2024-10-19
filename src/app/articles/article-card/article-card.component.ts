@@ -38,7 +38,7 @@ export class ArticleCardComponent implements OnInit {
       });
   }
 
-  private switchEditMode() {
+  protected switchEditMode() {
     if (!this.editMode) {
       this.articleData.getArticleUserSettings(this.article.id, this.environmentId)
         .subscribe(userSettings => {
@@ -60,7 +60,7 @@ export class ArticleCardComponent implements OnInit {
     }
   }
 
-  private updateArticle(editComponent: ArticleEditComponent) {
+  protected updateArticle(editComponent: ArticleEditComponent) {
     this.articleData.updateArticle(this.article, this.articleUserSettings)
       .subscribe(value => {
         this.alertify.success('Änderungen gespeichert');

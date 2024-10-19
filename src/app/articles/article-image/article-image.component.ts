@@ -15,7 +15,7 @@ export class ArticleImageComponent implements OnInit {
   @Output() imageUrlChange = new EventEmitter();
 
   private modalRef: BsModalRef;
-  private urlCopy: string;
+  protected urlCopy: string;
 
   constructor(private modalService: BsModalService) {
   }

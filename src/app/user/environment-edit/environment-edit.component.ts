@@ -21,7 +21,7 @@ export class EnvironmentEditComponent implements OnInit {
   currentMember: MemberPermission;
 
   constructor(private data: UsersService, private alertify: AlertifyService, private modalSvc: BsModalService,
-              private permissions: PermissionsService) {
+              protected permissions: PermissionsService) {
   }
 
   ngOnInit() {

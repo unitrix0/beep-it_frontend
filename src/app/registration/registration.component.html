@@ -26,7 +26,8 @@
               Das Passwort muss mindestens 6 Zeichen lang sein</small>
             <input class="form-control form-control-sm mt-2" type="password" name="passwordConfirm"
                    [(ngModel)]="model.password"
-                   placeholder="Passwort bestätigen" #pwConfirm="ngModel" required [equalTo]="pw">
+                   placeholder="Passwort bestätigen" #pwConfirm="ngModel" required>
+<!--            TODO Compare Passwords-->
             <small class="text-danger" *ngIf="pwConfirm.invalid && pwConfirm.touched && pwConfirm.errors.equalTo">
               Die Passwörter stimmen nicht überein</small>
           </div>

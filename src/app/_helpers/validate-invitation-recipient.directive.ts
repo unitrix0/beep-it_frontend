@@ -1,6 +1,6 @@
 import {Directive, forwardRef, Injectable} from '@angular/core';
 import {AbstractControl, AsyncValidator, EmailValidator, NG_ASYNC_VALIDATORS, ValidationErrors} from '@angular/forms';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {AuthService} from '../_services/auth.service';
 import {catchError, map} from 'rxjs/operators';
 
@@ -30,7 +30,8 @@ export class ValidateInvitationRecipientDirective implements AsyncValidator {
       catchError(error => {
         console.log(error);
         result.notExistingUser = true;
-        return map(() => result);
+        // return map(() => result);
+        return of(result);
       })
     );
 

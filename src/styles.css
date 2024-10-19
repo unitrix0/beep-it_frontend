@@ -43,13 +43,13 @@ select.form-control-sm {
   text-overflow: ellipsis;
 }
 
-@media (max-width: 1199.98px) {
+@media (max-width: 1199px) {
   .hide-lg-d {
     display: none;
   }
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 991px) {
   .hide-md-d {
     display: none;
   }
