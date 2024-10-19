@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import {UsersService} from '../_services/users.service';
 import {Observable, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
@@ -8,7 +8,7 @@ import {AuthService} from '../_services/auth.service';
 import {UserInvitations} from '../_models/user-invitations';
 
 @Injectable()
-export class InvitationsResolver implements Resolve<UserInvitations> {
+export class InvitationsResolver  {
 
   constructor(private dataService: UsersService, private auth: AuthService, private router: Router, private alertify: AlertifyService) {
   }

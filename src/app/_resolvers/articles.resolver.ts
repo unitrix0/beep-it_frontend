@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import {PaginatedResult} from '../_models/pagination';
 import {Article} from '../_models/article';
 import {Observable, of} from 'rxjs';
@@ -10,7 +10,7 @@ import {ArticlesFilter} from '../_models/articles-filter';
 import {PermissionsService} from '../_services/permissions.service';
 
 @Injectable()
-export class ArticlesResolver implements Resolve<PaginatedResult<Article[]>> {
+export class ArticlesResolver  {
   pageNumber = 1;
   pageSize = 8;
 

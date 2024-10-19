@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import {Observable, of} from 'rxjs';
 import {User} from '../_models/user';
 import {UsersService} from '../_services/users.service';
 import {catchError} from 'rxjs/operators';
 
 @Injectable()
-export class EditUserResolver implements Resolve<User> {
+export class EditUserResolver  {
 
   constructor(private dataService: UsersService, private router: Router) {
   }

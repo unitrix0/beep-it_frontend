@@ -27,7 +27,7 @@ export class UserSettingsComponent implements OnInit {
             ignoreBackdropClick: true,
             initialState: {
               cameras: devices,
-              selectedCamera: this.settingsService.cameraDeviceId
+              selectedCam: this.settingsService.cameraDeviceId
             }
           });
 

@@ -13,11 +13,6 @@ import {BarcodeFormat} from '@zxing/browser';
   styleUrls: ['./code-scanner.component.css']
 })
 export class CodeScannerComponent implements OnInit {
-  @Output() barcodeDetected = new EventEmitter<string>();
-  @Output() cancel = new EventEmitter();
-  @ViewChild(ZXingScannerComponent, {static: true}) scanner: ZXingScannerComponent;
-  private beep;
-  private lastCode: string;
 
   constructor(private settings: SettingsService, private modalService: BsModalService, private alertify: AlertifyService) {
     this.beep = new Audio();
@@ -25,6 +20,13 @@ export class CodeScannerComponent implements OnInit {
     this.beep.load();
     this.beep.volume = 0.1; // TODO Settings
   }
+  @Output() barcodeDetected = new EventEmitter<string>();
+  @Output() cancel = new EventEmitter();
+  @ViewChild(ZXingScannerComponent, {static: true}) scanner: ZXingScannerComponent;
+  private beep;
+  private lastCode: string;
+
+  protected readonly BarcodeFormat = BarcodeFormat;
 
   ngOnInit() {
   }
@@ -77,7 +79,7 @@ export class CodeScannerComponent implements OnInit {
       ignoreBackdropClick: true,
       initialState: {
         cameras: devices,
-        selectedCamera: this.settings.cameraDeviceId
+        selectedCam: this.settings.cameraDeviceId
       }
     });
 
@@ -118,6 +120,4 @@ export class CodeScannerComponent implements OnInit {
       this.alertify.error('Es konnte nicht auf die Kamera zugegriffen werden: ' + reason.message);
     });
   }
-
-  protected readonly BarcodeFormat = BarcodeFormat;
 }

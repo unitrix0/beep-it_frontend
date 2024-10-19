@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Options} from 'ng5-slider';
+import {Options} from '@angular-slider/ngx-slider';
 
 @Component({
   selector: 'app-article-open',

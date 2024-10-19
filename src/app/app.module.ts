@@ -54,7 +54,6 @@ import {ArticleCheckOutComponent} from './articles/article-check-out/article-che
 import {FillLevelComponent} from './_helpers/fill-level.component';
 import {StockEntryListComponent} from './articles/stock-entry-list/stock-entry-list.component';
 import {ArticleOpenComponent} from './articles/article-open/article-open.component';
-import {Ng5SliderModule} from 'ng5-slider';
 import {ArticleOpenDialogComponent} from './articles/article-open-dialog/article-open-dialog.component';
 import {RequiredSelectDirective} from './_directives/required-select.directive';
 import {LocalStorageItemNames} from './_enums/local-storage-item-names.enum';
@@ -75,6 +74,7 @@ import {PermissionsChangedInterceptorProvider} from './_interceptors/permissions
 import {PermissionHeadersInterceptorProvider} from './_interceptors/add-permission-headers.interceptor';
 import { RoundPipe } from './_helpers/round.pipe';
 import {tokenExpiredInterceptorProvider} from './_interceptors/token-expired.interceptor';
+import {NgxSliderModule} from '@angular-slider/ngx-slider';
 
 /* Liest den Token aus dem LocalStorage */
 export function jwtGetter() {
@@ -132,34 +132,34 @@ registerLocaleData(localeCh, 'de-CH');
         HoverClassDirective,
         RoundPipe,
     ],
-    imports: [
-        HttpClientModule,
-        BrowserModule,
-        JwtModule.forRoot({
-            config: {
-                tokenGetter: jwtGetter,
-                // whitelistedDomains: ['localhost:5001'],
-                // blacklistedRoutes: ['localhost:5001/api/auth']
-                whitelistedDomains: ['drone02.hive.loc:5000', 'drone02.hive.loc:5001'],
-                blacklistedRoutes: ['drone02.hive.loc:5000/api/auth', 'drone02.hive.loc:5001/api/auth']
-            }
-        }),
-        FormsModule,
-        RouterModule.forRoot(appRoutes, {}),
-        BsDatepickerModule.forRoot(),
-        BsDropdownModule.forRoot(),
-        ModalModule.forRoot(),
-        TabsModule.forRoot(),
-        PaginationModule.forRoot(),
-        ProgressbarModule.forRoot(),
-        CarouselModule.forRoot(),
-        ZXingScannerModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        Ng5SliderModule,
-        // CustomFormsModule,
-        CarouselModule
-    ],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: jwtGetter,
+        // whitelistedDomains: ['localhost:5001'],
+        // blacklistedRoutes: ['localhost:5001/api/auth']
+        allowedDomains: ['drone02.hive.loc:5000', 'drone02.hive.loc:5001'],
+        disallowedRoutes: ['drone02.hive.loc:5000/api/auth', 'drone02.hive.loc:5001/api/auth']
+      }
+    }),
+    FormsModule,
+    RouterModule.forRoot(appRoutes, {}),
+    BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    ModalModule.forRoot(),
+    TabsModule.forRoot(),
+    PaginationModule.forRoot(),
+    ProgressbarModule.forRoot(),
+    CarouselModule.forRoot(),
+    ZXingScannerModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    // CustomFormsModule,
+    CarouselModule,
+    NgxSliderModule
+  ],
     providers: [
         { provide: LOCALE_ID, useValue: 'de-CH' },
         AuthService,
