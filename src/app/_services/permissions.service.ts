@@ -5,7 +5,7 @@ import {PermissionToken} from '../_models/permission-token';
 import {AuthService} from './auth.service';
 import {LocalStorageItemNames} from '../_enums/local-storage-item-names.enum';
 import {Observable} from 'rxjs';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {AlertifyService} from './alertify.service';

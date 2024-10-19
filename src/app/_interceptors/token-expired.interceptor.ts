@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {AuthService} from '../_services/auth.service';
 import {catchError, filter, switchMap, take, tap} from 'rxjs/operators';

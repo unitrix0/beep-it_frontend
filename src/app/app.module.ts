@@ -1,4 +1,4 @@
-import {HttpClientModule} from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {ElementRef, LOCALE_ID, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
@@ -84,8 +84,7 @@ export function jwtGetter() {
 
 registerLocaleData(localeCh, 'de-CH');
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
         NavComponent,
         ScanComponent,
@@ -132,35 +131,31 @@ registerLocaleData(localeCh, 'de-CH');
         HoverClassDirective,
         RoundPipe,
     ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: jwtGetter,
-        // whitelistedDomains: ['localhost:5001'],
-        // blacklistedRoutes: ['localhost:5001/api/auth']
-        allowedDomains: ['drone02.hive.loc:5000', 'drone02.hive.loc:5001'],
-        disallowedRoutes: ['drone02.hive.loc:5000/api/auth', 'drone02.hive.loc:5001/api/auth']
-      }
-    }),
-    FormsModule,
-    RouterModule.forRoot(appRoutes, {}),
-    BsDatepickerModule.forRoot(),
-    BsDropdownModule.forRoot(),
-    ModalModule.forRoot(),
-    TabsModule.forRoot(),
-    PaginationModule.forRoot(),
-    ProgressbarModule.forRoot(),
-    CarouselModule.forRoot(),
-    ZXingScannerModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    // CustomFormsModule,
-    CarouselModule,
-    NgxSliderModule
-  ],
-    providers: [
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: jwtGetter,
+                // whitelistedDomains: ['localhost:5001'],
+                // blacklistedRoutes: ['localhost:5001/api/auth']
+                allowedDomains: ['drone02.hive.loc:5000', 'drone02.hive.loc:5001'],
+                disallowedRoutes: ['drone02.hive.loc:5000/api/auth', 'drone02.hive.loc:5001/api/auth']
+            }
+        }),
+        FormsModule,
+        RouterModule.forRoot(appRoutes, {}),
+        BsDatepickerModule.forRoot(),
+        BsDropdownModule.forRoot(),
+        ModalModule.forRoot(),
+        TabsModule.forRoot(),
+        PaginationModule.forRoot(),
+        ProgressbarModule.forRoot(),
+        CarouselModule.forRoot(),
+        ZXingScannerModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        // CustomFormsModule,
+        CarouselModule,
+        NgxSliderModule], providers: [
         { provide: LOCALE_ID, useValue: 'de-CH' },
         AuthService,
         UsersService,
@@ -173,9 +168,7 @@ registerLocaleData(localeCh, 'de-CH');
         ErrorInterceptorProvider,
         PermissionHeadersInterceptorProvider,
         PermissionsChangedInterceptorProvider,
-        // tokenExpiredInterceptorProvider
-    ],
-    bootstrap: [AppComponent]
-})
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule {
 }
